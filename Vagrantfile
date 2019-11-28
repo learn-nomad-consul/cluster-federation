@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "monitoring-ctrlplane" do |c|
     c.vm.hostname = "monitoring-ctrlplane"
     c.vm.network "private_network", ip: "172.16.1.10"
+    c.vm.network "private_network", ip: "172.18.1.10"
     c.vm.synced_folder ".", "/vagrant", disabled: true
     c.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", "256"]
@@ -26,6 +27,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "monitoring-dataplane" do |c|
     c.vm.hostname = "monitoring-dataplane"
     c.vm.network "private_network", ip: "172.16.1.11"
+    c.vm.network "private_network", ip: "172.18.1.11"
     c.vm.synced_folder ".", "/vagrant", disabled: true
     c.vm.synced_folder "./nomad/", "/home/vagrant/nomad"
     c.vm.synced_folder "./consul/", "/home/vagrant/consul"
@@ -36,6 +38,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "shared-ctrlplane" do |c|
     c.vm.hostname = "shared-ctrlplane"
     c.vm.network "private_network", ip: "172.16.2.10"
+    c.vm.network "private_network", ip: "172.18.2.10"
     c.vm.synced_folder ".", "/vagrant", disabled: true
     c.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", "256"]
@@ -46,6 +49,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "shared-dataplane" do |c|
     c.vm.hostname = "shared-dataplane"
     c.vm.network "private_network", ip: "172.16.2.11"
+    c.vm.network "private_network", ip: "172.18.2.11"
     c.vm.synced_folder ".", "/vagrant", disabled: true
     c.vm.synced_folder "./nomad/", "/home/vagrant/nomad"
     c.vm.synced_folder "./consul/", "/home/vagrant/consul"
@@ -57,6 +61,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "client1-ctrlplane" do |c|
     c.vm.hostname = "client1-ctrlplane"
     c.vm.network "private_network", ip: "172.16.3.10"
+    c.vm.network "private_network", ip: "172.18.3.10"
     c.vm.synced_folder ".", "/vagrant", disabled: true
     c.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", "256"]
@@ -67,6 +72,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "client1-dataplane" do |c|
     c.vm.hostname = "client1-dataplane"
     c.vm.network "private_network", ip: "172.16.3.11"
+    c.vm.network "private_network", ip: "172.18.3.11"
     c.vm.synced_folder ".", "/vagrant", disabled: true
     c.vm.synced_folder "./nomad/", "/home/vagrant/nomad"
     c.vm.synced_folder "./consul/", "/home/vagrant/consul"
@@ -77,6 +83,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "client2-ctrlplane" do |c|
     c.vm.hostname = "client2-ctrlplane"
     c.vm.network "private_network", ip: "172.16.4.10"
+    c.vm.network "private_network", ip: "172.18.4.10"
     c.vm.synced_folder ".", "/vagrant", disabled: true
     c.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", "256"]
@@ -87,6 +94,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "client2-dataplane" do |c|
     c.vm.hostname = "client2-dataplane"
     c.vm.network "private_network", ip: "172.16.4.11"
+    c.vm.network "private_network", ip: "172.18.4.11"
     c.vm.synced_folder ".", "/vagrant", disabled: true
     c.vm.synced_folder "./nomad/", "/home/vagrant/nomad"
     c.vm.synced_folder "./consul/", "/home/vagrant/consul"

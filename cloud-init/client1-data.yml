@@ -7,8 +7,12 @@ write_files:
   content: |
     data_dir = "/tmp"
     datacenter = "client1"
+    primary_datacenter = "monitoring"
     encrypt = "x7ohWiQjK7d/OSBvnENBXsfKxNt2GXWI7G11eejUSeI="
     advertise_addr = "172.16.3.11"
+    advertise_addr_wan = "172.18.3.11"
+    serf_lan = "172.16.3.11"
+    serf_wan = "172.18.3.11"
     retry_join = ["172.16.3.10"]
     retry_interval = "5s"
     addresses {
@@ -21,6 +25,7 @@ write_files:
     }
     node_name = "dataplane"
     enable_central_service_config = true
+    ui = true
 - path: /etc/nomad.d/nomad.hcl
   permissions: 0644
   owner: root
@@ -30,7 +35,7 @@ write_files:
     bind_addr = "172.16.3.11"
     client {
       enabled           = true
-      network_interface = "eth1"
+      network_interface = "eth2"
       network_speed = 1000
     }
     addresses {

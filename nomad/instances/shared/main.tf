@@ -10,5 +10,6 @@ module "shared" {
 module "mesh-gateway" {
   source = "../../modules/gateway"
   datacenter = "shared"
-  ip = "172.16.2.11"
+  local_ip = "172.16.2.11"
+  ip = "172.18.2.11"
 }

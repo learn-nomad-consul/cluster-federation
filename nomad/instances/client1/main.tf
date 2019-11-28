@@ -6,7 +6,8 @@ provider "nomad" {
 module "mesh-gateway" {
   source = "../../modules/gateway"
   datacenter = "client1"
-  ip = "172.16.3.11"
+  local_ip = "172.16.3.11"
+  ip = "172.18.3.11"
 }
 
 module "web" {

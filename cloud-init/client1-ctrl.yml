@@ -7,12 +7,16 @@ write_files:
   content: |
     server = true
     datacenter = "client1"
+    primary_datacenter = "monitoring"
     bootstrap_expect = 1
     log_level = "DEBUG"
     encrypt = "x7ohWiQjK7d/OSBvnENBXsfKxNt2GXWI7G11eejUSeI="
     data_dir = "/tmp"
     advertise_addr = "172.16.3.10"
-    retry_join_wan = ["172.16.1.10", "172.16.2.10"]
+    advertise_addr_wan = "172.18.3.10"
+    serf_lan = "172.16.3.10"
+    serf_wan = "172.18.3.10"
+    retry_join_wan = ["172.18.1.10", "172.18.2.10"]
     connect {
       enabled = true
     }

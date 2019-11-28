@@ -3,6 +3,14 @@ provider "nomad" {
   version = "~> 1.4"
 }
 
+module "mesh-gateway" {
+  source = "../../modules/gateway"
+  datacenter = "client2"
+  local_ip = "172.16.4.11"
+  ip = "172.18.4.11"
+}
+
+
 module "web" {
   source = "../../modules/web"
   datacenter = "client2"

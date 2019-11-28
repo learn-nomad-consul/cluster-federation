@@ -4,6 +4,7 @@ job "${ datacenter }-svc" {
   group "ml-grp" {
     network {
       mode = "bridge"
+      mbits = 1
     }
 
     service {

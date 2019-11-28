@@ -4,6 +4,7 @@ job "${ datacenter }-gateway" {
   group "gateway" {
     network {
       mode = "host"
+      mbits = 1
     }
 
     task "gateway" {
@@ -17,7 +18,7 @@ job "${ datacenter }-gateway" {
           "connect", "envoy",
           "-mesh-gateway",
           "-register",
-          "-address", "${ip}:8443",
+          "-address", "${local_ip}:8443",
           "-wan-address", "${ip}:8443",
           "--",
           "-l", "debug"

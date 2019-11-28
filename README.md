@@ -16,3 +16,6 @@ vagrant up
 maybe add the datacenter param to nomad agents :
 `datacenter = "client1"`
 
+```
+grep config.vm.define Vagrantfile | awk -F'"' '{print $2}' | xargs -P8 -I {} vagrant up {}
+```
