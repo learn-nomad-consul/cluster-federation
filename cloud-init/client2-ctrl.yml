@@ -7,6 +7,7 @@ write_files:
   content: |
     server = true
     datacenter = "client2"
+    primary_datacenter = "monitoring"
     bootstrap_expect = 1
     log_level = "DEBUG"
     encrypt = "x7ohWiQjK7d/OSBvnENBXsfKxNt2GXWI7G11eejUSeI="

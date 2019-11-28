@@ -20,7 +20,7 @@ job "${ datacenter }-web" {
               local_bind_port = 12345
             }
             upstreams {
-              destination_name = "svc-shared"
+              destination_name = "ml"
               local_bind_port = 23456
             }
           }

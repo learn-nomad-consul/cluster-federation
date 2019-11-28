@@ -19,17 +19,7 @@ resource "consul_config_entry" "svc2" {
     Protocol    = "http"
   })
 }
-resource "consul_config_entry" "shared-defaults" {
-  name = "svc-shared"
-  kind = "service-defaults"
-  config_json = jsonencode({
-    Protocol    = "http"
-    MeshGateway = {
-      Mode = "local"
-    }
-  })
-}
-resource "consul_config_entry" "ml" {
+resource "consul_config_entry" "ml-defaults" {
   name = "ml"
   kind = "service-defaults"
   config_json = jsonencode({
