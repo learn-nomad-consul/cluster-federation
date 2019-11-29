@@ -16,11 +16,11 @@ job "${ datacenter }-web" {
         sidecar_service {
           proxy {
             upstreams {
-              destination_name = "backend"
+              destination_name = "${datacenter}-backend"
               local_bind_port = 12345
             }
             upstreams {
-              destination_name = "ml"
+              destination_name = "shared-ml"
               local_bind_port = 23456
             }
           }
@@ -48,6 +48,7 @@ job "${ datacenter }-web" {
         UPSTREAM_URIS = "http://127.0.0.1:12345, http://127.0.0.1:12345/v2, http://127.0.0.1:23456",
         HTTP_CLIENT_APPEND_REQUEST = "true",
         LOG_LEVEL = "DEBUG"
+        MESSAGE = "hello from web in DC ${ datacenter }"
       }
     }
   }

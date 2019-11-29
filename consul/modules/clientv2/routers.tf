@@ -1,5 +1,5 @@
 resource "consul_config_entry" "backend_router" {
-  name = "backend"
+  name = "${var.dc}-backend"
   kind = "service-router"
 
   config_json = jsonencode({
@@ -11,7 +11,7 @@ resource "consul_config_entry" "backend_router" {
           }
         }
         Destination = {
-          Service = "svc2"
+          Service = "${var.dc}-svc2"
         }
       },
       {
@@ -21,7 +21,7 @@ resource "consul_config_entry" "backend_router" {
           }
         }
         Destination = {
-          Service = "svc1"
+          Service = "${var.dc}-svc1"
         }
       },
     ]

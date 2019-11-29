@@ -7,8 +7,8 @@ job "${ datacenter }-svc1" {
     }
 
     service {
-      name = "svc1"
-      port = 5678
+      name = "${ datacenter }-svc1"
+      port = 9090
       connect {
         sidecar_service {}
         sidecar_task {
@@ -24,10 +24,10 @@ job "${ datacenter }-svc1" {
       driver = "docker"
 
       config {
-        image = "hashicorp/http-echo:0.2.3"
-        args = [
-          "-text", "hello from service1 in $NOMAD_DC"
-        ]
+        image = "nicholasjackson/fake-service:v0.7.8"
+      }
+      env {
+        MESSAGE = "hello from svc1 in DC ${ datacenter }"
       }
 
       resources {

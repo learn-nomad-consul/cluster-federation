@@ -10,17 +10,14 @@ module "mesh-gateway" {
   ip = "172.18.4.11"
 }
 
-
 module "web" {
   source = "../../modules/web"
   datacenter = "client2"
 }
-
 module "svc1" {
   source = "../../modules/svc1"
   datacenter = "client2"
 }
-
 module "svc2" {
   source = "../../modules/svc2"
   datacenter = "client2"

@@ -1,15 +1,15 @@
 job "${ datacenter }-svc" {
   datacenters = ["${ datacenter }"]
 
-  group "ml-grp" {
+  group "ml" {
     network {
       mode = "bridge"
       mbits = 1
     }
 
     service {
-      name = "ml"
-      port = 5678
+      name = "${ datacenter }-ml"
+      port = 9090
       connect {
         sidecar_service {}
         sidecar_task {
@@ -21,14 +21,14 @@ job "${ datacenter }-svc" {
       }
     }
 
-    task "ml-task" {
+    task "ml" {
       driver = "docker"
 
       config {
-        image = "hashicorp/http-echo:0.2.3"
-        args = [
-          "-text", "hello from shared in $NOMAD_DC"
-        ]
+        image = "nicholasjackson/fake-service:v0.7.8"
+      }
+      env {
+        MESSAGE = "hello from ml in DC ${ datacenter }"
       }
 
       resources {

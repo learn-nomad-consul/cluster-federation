@@ -6,4 +6,5 @@ provider "consul" {
 
 module "client" {
   source = "../../modules/clientv1"
+  dc = "client1"
 }
