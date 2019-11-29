@@ -21,7 +21,6 @@ write_files:
       enabled = true
     }
     node_name = "ctrlplane"
-    enable_central_service_config = true
 - path: /etc/nomad.d/nomad.hcl
   permissions: 0644
   owner: root

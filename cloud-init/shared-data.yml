@@ -14,7 +14,6 @@ write_files:
     serf_lan = "172.16.2.11"
     serf_wan = "172.18.2.11"
     retry_join = ["172.16.2.10"]
-    retry_interval = "5s"
     addresses {
         dns  = "127.0.0.1 172.17.0.1"
         http = "127.0.0.1 172.17.0.1"
@@ -24,7 +23,6 @@ write_files:
         grpc = 8502
     }
     node_name = "dataplane"
-    enable_central_service_config = true
     ui = true
 - path: /etc/nomad.d/nomad.hcl
   permissions: 0644
